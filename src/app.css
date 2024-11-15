@@ -1,79 +1,199 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+  background-color: #bdbdbd;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+html,
 body {
+  margin: 0px;
+  padding: 0px;
+  min-height: 100%;
+}
+
+input {
+  height: calc(var(--sl-input-height-medium) - var(--sl-input-border-width) * 2);
+  padding: 0 var(--sl-input-spacing-medium);
+  flex: 1 1 auto;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  min-width: 0px;
+  color: var(--sl-input-color);
+  border: medium;
+  background: inherit;
+  box-shadow: none;
+  margin: 0px;
+  cursor: inherit;
+  appearance: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(182, 182, 190);
+  border-radius: 24px;
+}
+
+textarea {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+}
+
+table {
+  /* border: 1px solid #ccc; */
+  border-collapse: collapse;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+table input,
+table sl-select {
+  width: 100%;
 }
 
-.card {
-  padding: 2em;
+table caption {
+  /* font-size: 1.5em; */
+  margin: 0.5em 0 0.75em;
+}
+
+table tr {
+  /* border: 1px solid #ddd; */
+  padding: 0.35em;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  /* text-align: center; */
+}
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  /* text-transform: uppercase; */
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table th,
+  table td {
+    display: flex;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    /* border-bottom: 1px solid #ddd; */
+    /* display: block; */
+    font-size: 0.8em;
+    /* text-align: right; */
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    /* float: left; */
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  .mobile-label {
+    display: block !important;
+  }
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  background-color: #424242;
+  border-radius: 24px;
+  height: calc(100% - 1rem);
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.mobile-label {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  color: #ff3e00;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 100;
   text-align: center;
+  margin: 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.header {
+  color: #7cb342;
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.remove-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-btn sl-icon-button::part(base) {
+  color: var(--sl-color-danger-600);
 }
